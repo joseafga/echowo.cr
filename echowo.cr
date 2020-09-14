@@ -46,11 +46,11 @@ module Echowo
       end
     end
 
-    print "#{random_uwuism} #{ARGV.uwufication.join(' ')} #{random_uwuism}"
-    print "\n" if newline # print newline on end?
+    # print only if some argument is given
+    print "#{random_uwuism} #{ARGV.uwufication.join(' ')} #{random_uwuism}" if ARGV.size > 0
+    print "\n" if newline
     STDOUT.flush
   end
 end
 
-ARGV << "-h" if ARGV.size == 0 # Display help if no parameters
 Echowo.main
