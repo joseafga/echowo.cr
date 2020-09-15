@@ -25,32 +25,23 @@ module Echowo
   end
 
   def main
-    newline = true
-
     OptionParser.parse do |parser|
       parser.banner = <<-HELP
-      Usage: echowo [OPTIONS] [STRING]
-      UNIX echo command which also uwu-fies text
-      HELP
-
-      parser.on "-v", "--version", "Show version" do
-        puts Echowo::VERSION
-        exit
-      end
-      parser.on "-h", "--help", "Show help" do
-        puts parser
-        exit
-      end
-      parser.on "-n", "Do not append a newline" do
-        newline = false
-      end
+        Usage: echowo [OPTIONS] [STRING]
+        UNIX echo command which also uwu-fies text
+        HELP
+      parser.on "-v", "--version", "Show version" { puts VERSION; exit }
+      parser.on "-h", "--help", "Show help" { puts parser; exit }
+      parser.on "-n", "Do not append a newline" { self.newline = false }
     end
 
     # print only if some argument is given
     print "#{random_uwuism} #{ARGV.uwufication.join(' ')} #{random_uwuism}" if ARGV.size > 0
-    print "\n" if newline
+    print "\n" if self.newline?
     STDOUT.flush
   end
+
+  class_property? newline = true
 end
 
 Echowo.main
