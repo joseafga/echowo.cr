@@ -7,7 +7,7 @@ module Echowo
   VERSION           = "0.1.0"
   ESCAPES_REFERENCE = "abeEfnrtv"
   ESCAPES_REPLACE   = "\a\b\033\033\f\n\r\t\v"
-  UWUISM            = [
+  UWUISM            = {
     "uwu",
     "owo",
     "^w^",
@@ -18,8 +18,7 @@ module Echowo
     "nyu...",
     ":3",
     "rawr!",
-    # "fuck!!!1!", OwO
-  ]
+  }
 
   # generate random words from list
   def random_uwuism
