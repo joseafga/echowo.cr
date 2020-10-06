@@ -4,7 +4,7 @@ require "./echowo/string"
 module Echowo
   extend self
 
-  VERSION     = "0.1.0"
+  VERSION     = "0.2.0"
   ESCAPES_REF = "abeEfnrtv"
   ESCAPES_REP = "\a\b\033\033\f\n\r\t\v"
   UWUISM      = {
