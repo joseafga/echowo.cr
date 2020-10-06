@@ -98,7 +98,7 @@ module Echowo
       if self.escape?
         print unescape(output)
       else
-        output
+        print output
       end
       print random_uwuism
     end
