@@ -79,15 +79,15 @@ module Echowo
   def main
     OptionParser.parse do |parser|
       parser.banner = <<-HELP
-        Usage: echowo [OPTIONS] [STRING]
-        UNIX echo command which also uwu-fies text
+        Usage: echowo [OPTIONS] [ARG ...]
+        Write uwufied arguments to the standard output.
         HELP
-      parser.on "-v", "--version", "Show version" { puts VERSION; exit }
-      parser.on "-n", "Do not append a newline" { self.newline = false }
-      parser.on "-e", "Enable interpretation of backslash escapes" { self.escape = true }
-      parser.on "-E", "Disable interpretation of backslash escapes" { self.escape = false }
-      parser.on "-h", "--help", "Show help" { puts parser; exit }
-      parser.on "-n", "Do not append a newline" { self.newline = false }
+      parser.on "-v", "--version", "show version" { puts VERSION; exit }
+      parser.on "-n", "do not append a newline" { self.newline = false }
+      parser.on "-e", "enable interpretation of backslash escapes" { self.escape = true }
+      parser.on "-E", "disable interpretation of backslash escapes" { self.escape = false }
+      parser.on "-h", "--help", "show help" { puts parser; exit }
+      parser.on "-n", "do not append a newline" { self.newline = false }
     end
 
     # Print only if some argument is given
