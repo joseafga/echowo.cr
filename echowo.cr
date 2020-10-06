@@ -4,10 +4,10 @@ require "./echowo/string"
 module Echowo
   extend self
 
-  VERSION           = "0.1.0"
-  ESCAPES_REFERENCE = "abeEfnrtv"
-  ESCAPES_REPLACE   = "\a\b\033\033\f\n\r\t\v"
-  UWUISM            = {
+  VERSION     = "0.1.0"
+  ESCAPES_REF = "abeEfnrtv"
+  ESCAPES_REP = "\a\b\033\033\f\n\r\t\v"
+  UWUISM      = {
     "uwu",
     "owo",
     "^w^",
@@ -20,13 +20,18 @@ module Echowo
     "rawr!",
   }
 
-  # generate random words from list
+  # Generate random words from list
   def random_uwuism
     UWUISM[Random.rand(UWUISM.size)]
   end
 
+  # Accept non UTF-8 char
+  def non_utf8_char(codepoint : UInt8)
+    return String.new(Bytes[codepoint])
+  end
+
   def unescape(text : String)
-    # walkthough text chars
+    # Walkthough text chars
     chars = Char::Reader.new(text)
     while chars.has_next?
       c = chars.current_char
@@ -36,8 +41,11 @@ module Echowo
         c = chars.current_char
         chars.next_char
 
-        index = ESCAPES_REFERENCE.index(c)
-        c = ESCAPES_REPLACE[index] unless index.nil?
+        index = ESCAPES_REF.index(c)
+        unless index.nil?
+          print ESCAPES_REP[index]
+          next
+        end
 
         case c
         when 'c'; exit
@@ -45,12 +53,12 @@ module Echowo
           value = chars.string[chars.pos, 2][/^[0-F]+/i]
           chars.pos += value.size
 
-          c = value.to_u8(16).chr
+          c = non_utf8_char value.to_u8(16)
         when '0'
           value = chars.string[chars.pos, 3][/^[0-7]+/i]
           chars.pos += value.size
 
-          c = value.to_u8(8).chr
+          c = non_utf8_char value.to_u8(8)
         when 'u' # 16 bits
           value = chars.string[chars.pos, 4][/^[0-F]+/i]
           chars.pos += value.size
