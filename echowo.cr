@@ -1,5 +1,5 @@
 require "option_parser"
-require "./echowo/array"
+require "./echowo/string"
 
 module Echowo
   extend self
@@ -82,13 +82,17 @@ module Echowo
       parser.on "-n", "Do not append a newline" { self.newline = false }
     end
 
-    # print only if some argument is given
+    # Print only if some argument is given
     if ARGV.size > 0
+      output = " #{ARGV.join(' ').uwufication} "
+
+      print random_uwuism
       if self.escape?
-        unescape ARGV.uwufication.join(' ')
+        print unescape(output)
       else
-        print ARGV.uwufication.join(' ')
+        output
       end
+      print random_uwuism
     end
 
     print '\n' if self.newline?

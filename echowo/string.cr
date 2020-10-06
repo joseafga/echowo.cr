@@ -1,4 +1,4 @@
-class Array(T)
+class String
   UWUISM = {
     "ll"  => "ww",
     "orr" => "oww",
@@ -12,12 +12,12 @@ class Array(T)
 
   # uwufy array words
   def uwufication
-    self.map do |word| 
-      UWUISM.each { |k, v|
-        word = word.gsub(k, v)
-      }
+    temp = self
 
-      word
+    UWUISM.each do |k, v|
+      temp = temp.gsub(k, v)
     end
+
+    temp
   end
 end
