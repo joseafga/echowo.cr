@@ -1,6 +1,6 @@
 # echowo
-Crystal powt of [echowo](https://github.com/kokoscript/echowo).
-> Near-drop-in replacement for the Unix echo command which also uwu-fies text
+Based on [echowo](https://github.com/kokoscript/echowo).
+Bash `echo` like with string uwufication.
 
 ## Build
 Myake sure you have **Crystal** instawwed, then:
@@ -15,14 +15,17 @@ Executable file wiww be located in `bin/echowo`
 
 ## Usage
 ```
-echowo [OPTIONS] [STRING]
+echowo [OPTIONS] [ARG ...]
 ```
 
 The available options are:
 
 ```
--v, --version            Show version
--h, --help               Show help
+-v, --version            show version
+-n                       do not append a newline
+-e                       enable interpretation of backslash escapes
+-E                       disable interpretation of backslash escapes
+-h, --help               show help
 -n                       Do not append a newline
 ```
 
