@@ -1,6 +1,6 @@
 # echowo
-Based on [echowo](https://github.com/kokoscript/echowo).
-Bash `echo` like with string uwufication.
+Bash `echo` like with string uwufication.  
+Based on [echowo](https://github.com/kokoscript/echowo) and written in Crystal.
 
 ## Build
 Myake sure you have **Crystal** instawwed, then:
