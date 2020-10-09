@@ -10,7 +10,7 @@ class String
     "mam" => "myam",
   }
 
-  # uwufy array words
+  # uwufy string
   def uwufication
     temp = self
 

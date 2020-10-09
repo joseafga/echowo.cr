@@ -27,7 +27,7 @@ module Echowo
 
   # Accept non UTF-8 char
   def non_utf8_char(codepoint : UInt8)
-    return String.new(Bytes[codepoint])
+    String.new(Bytes[codepoint])
   end
 
   def unescape(text : String)
@@ -96,7 +96,7 @@ module Echowo
 
       print random_uwuism
       if self.escape?
-        print unescape(output)
+        unescape output
       else
         print output
       end
@@ -104,7 +104,6 @@ module Echowo
     end
 
     print '\n' if self.newline?
-    STDOUT.flush
   end
 
   class_property? newline = true
