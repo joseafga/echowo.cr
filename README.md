@@ -8,7 +8,7 @@ Myake sure you have **Crystal** instawwed, then:
 ```
 git clone https://github.com/joseafga/echowo.git
 cd echowo
-crystal build echowo.cr -o ./bin/echowo --release
+crystal build "src/echowo.cr" -o "bin/echowo" --release
 ```
 
 Executable file wiww be located in `bin/echowo`

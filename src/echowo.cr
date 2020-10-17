@@ -1,5 +1,5 @@
 require "option_parser"
-require "./echowo/string"
+require "./echowo/*"
 
 module Echowo
   extend self
