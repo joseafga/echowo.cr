@@ -2,20 +2,21 @@
 Bash `echo` like with string uwufication.  
 Based on [echowo](https://github.com/kokoscript/echowo) and written in Crystal.
 
-## Build
+## Build nya!
 Myake sure you have **Crystal** instawwed, then:
 
 ```
-git clone https://github.com/joseafga/echowo.git
-cd echowo
+$ git clone https://github.com/joseafga/echowo.git
+$ cd echowo
 
-make
-sudo make install
+# make
+# make install
 ```
+Remembew: you can use `DESTDIR=/path/to/dest` to specify anothew instawwation directowy or run directly from `./bin/echowo`
 
 Now you can execute `echowo`
 
-## Usage
+## Usage :3
 ```
 echowo [OPTIONS] [ARG ...]
 ```
@@ -31,7 +32,7 @@ The available options are:
 -n                       Do not append a newline
 ```
 
-## Examples
+## Examples rawr!
 ```bash
 ~$ echowo hello world
 ^w^ hewwo wowld huoooh...
