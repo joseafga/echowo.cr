@@ -8,8 +8,10 @@ debug:
 				crystal build --debug src/echowo.cr -o bin/echowo
 
 install:
-				install -D -m0755 bin/echowo $(DESTDIR)$(PREFIX)/bin/echowo
-				install -D -m0644 LICENSE $(DESTDIR)$(PREFIX)/share/licenses/echowo/LICENSE
+				mkdir -p $(DESTDIR)$(PREFIX)/bin && \
+					install -m0755 bin/echowo $(DESTDIR)$(PREFIX)/bin/echowo
+				mkdir -p $(DESTDIR)$(PREFIX)/share/licenses/echowo/ && \
+					install -m0644 LICENSE $(DESTDIR)$(PREFIX)/share/licenses/echowo/LICENSE
 
 uninstall:
 				rm $(DESTDIR)$(PREFIX)/bin/echowo
